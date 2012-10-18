@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  place_id: 1
+  day_of_week: 1
+  start_time: 2012-06-13 13:14:04
+  end_time: 2012-06-13 13:14:04
+  sale: 1
+
+two:
+  place_id: 1
+  day_of_week: 1
+  start_time: 2012-06-13 13:14:04
+  end_time: 2012-06-13 13:14:04
+  sale: 1

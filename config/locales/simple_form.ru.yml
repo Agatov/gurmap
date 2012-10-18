@@ -1,0 +1,24 @@
+ru:
+  simple_form:
+    labels:
+      place:
+        name: Название
+        address: Адрес
+        average_check: Средний счёт
+        avatar: Аватар
+        tag_list: Список тегов
+        description: Описание
+        phone: Телефон
+      schedule:
+        day_of_week: День недели
+        start_time: Время начала
+        end_time: Время конца
+        sale: Скидка
+      account:
+        email: Электронный адрес
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remember_me: Запомнить меня
+        first_name: Имя
+        last_name: Фамилия
+        phone: Контактный телефон

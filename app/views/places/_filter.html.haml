@@ -1,0 +1,68 @@
+#filter
+  .dropdown-pane#filter-average-check
+    .content
+      500R - 10000R
+    .slider
+      #slider-average-check
+
+    
+  .dropdown-pane#filter-sale
+    .content
+      от 30%
+    .slider
+      #slider-sale
+
+
+  .dropdown-pane#filter-input
+    .content
+      #filter-input-hint.hide{style: 'margin-top: 10px; margin-bottom: 10px'}
+        Введите любое ключевое слово. Например:
+      %ul.taglist
+
+  -#h-shadow
+
+  %fieldset#logo
+    %a{href: '#'}
+      = image_tag '/images/logo.png'
+
+
+  %fieldset.dropdown.blocked{rel: 'filter-input'}
+
+    #top-links
+      .element
+        Скидка:
+        %a#sale-value.dropdown{rel: 'filter-sale'}
+          любая
+      .element
+        Средний счёт:
+        %a#average-check-value.dropdown{rel: 'filter-average-check'}
+          любой
+      .element
+        Город:
+        %a.dropdown
+          Москва
+      
+
+    %ul.tokenizer
+      .tokens-list-container
+        .tokens-list
+      .token-input
+        %input{type: :text}
+        #tokenizer-placemark
+          Воспользуйтесь умным поиском     
+    %span#resizer.hide{style: 'min-width: 30px;'}
+    #tokenizer-examples
+      Например:
+      %span.example Суши
+      ,
+      %span.example Тихо
+      ,
+      %span.example Кальян
+
+  %fieldset.right
+    = render partial: 'layouts/right'
+  
+%script#token-item-template{type: "text/template"}
+  .value
+    <%= text %>
+  .destroy

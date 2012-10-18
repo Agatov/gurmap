@@ -1,0 +1,54 @@
+@import "sassy-buttons"
+
+#about-modal-background
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 0px
+  left: 0px
+  z-index: 100
+  background: #000
+  opacity: 0.8
+
+#about-modal
+  width: 1040px
+  height: 450px
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee))
+  position: absolute
+  top: 0px
+  left: 0pxpx
+  z-index: 101
+  display: none
+  padding: 30px
+  .main
+    font-family: "PTSans-bold"
+    font-size: 45px
+    text-align: center
+    color: #000
+    margin-top: 15px
+    margin-bottom: 50px
+  .blocks
+    margin-left: 30px
+    margin-bottom: 50px
+    .block
+      float: left
+      width: 315px
+      margin-right: 20px
+
+      .name
+        font-family: "PTSans-bold"
+        color: #000
+        font-size: 16px
+
+      .info
+        font-family: "PTSans-normal"
+        color: #333
+        font-size: 14px
+
+  .button-strip
+    text-align: center
+    .button
+      @include sassy-button("matte", 50px, 40px, #356eb0, #356eb0)
+      &:hover
+      text-decoration: none
+    

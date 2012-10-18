@@ -1,0 +1,50 @@
+@import "sassy-buttons"
+
+@mixin change-value-element 
+  width: 50px
+  height: 50px
+  float: left
+  cursor: pointer
+  box-sizing: border-box
+  color: #fff
+  font-size: 24px
+  background: linear-gradient(#474747 50%, #333 51%)
+  padding: 20px 10px
+
+.number-picker
+  width: 275px
+  height: 50px
+  box-sizing: border-box
+  clear: both
+
+  .decrease
+    @include change-value-element
+    position: relative
+
+    img
+      position: absolute
+      top: 0px
+      left: 0px
+    
+  .value
+    float: left
+    width: 50px
+    height: 50px
+    margin-left: 62px
+    margin-right: 62px
+    background: #efefef
+    font-size: 26px
+    color: #333
+    text-align: center
+    padding-top: 15px
+    box-sizing: border-box
+    border-radius: 50px
+
+  .increase
+    @include change-value-element
+    position: relative
+    img
+      position: absolute
+      top: 0px
+      left: 0px
+    

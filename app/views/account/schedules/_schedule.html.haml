@@ -1,0 +1,32 @@
+%table.table.periods
+  -#
+    %tr
+      %th
+        Старт
+      %th
+        Финиш
+      %th
+        Скидка
+      %th
+        x
+  - schedule.each do |day, content|
+    %thead{day_of_week: day}
+      %tr
+        %th{colspan: 3, align: 'center'}
+          = Date::DAYNAMES[day]
+    %tbody
+      - content.sort_by {|c| c.start_time}.each do |schedule|
+        %tr.period{schedule_id: schedule.id}
+          %td.from
+            = schedule.start_time.strftime("%H:%M")
+          %td.to
+            = schedule.end_time.strftime("%H:%M")
+          %td.sale
+            = "#{schedule.sale.to_s}%"
+          %td
+            %a.edit-schedule{href: edit_account_schedule_path(schedule), schedule_id: schedule.id}
+              Изменить
+            = link_to 'Удалить', account_schedule_path(schedule), method: :delete, confirm: 'Вы уверены?'
+            -#
+              %a.remove-schedule{href: '#', schedule_id: schedule.id}
+                Удалить

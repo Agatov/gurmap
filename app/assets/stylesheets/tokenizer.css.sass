@@ -1,0 +1,70 @@
+.tokenizer
+  width: 450px
+  height: 25px
+  min-height: 1px
+  border: 1px solid #aaa
+  cursor: text
+  z-index: 999
+  margin: 0px
+  padding: 0px
+  background: #fff
+  clear: left
+  list-style-type: none
+  margin-bottom: 5px
+  box-shadow: inset 0px 1px 1px #cfcfcf
+  
+
+  .tokens-list-container
+    float: left
+    width: 0px
+    height: 25px
+    overflow: hidden
+    position: relative
+    .tokens-list
+      width: 10000px
+      overflow: hidden
+      height: 25px
+      position: relative
+      .token-item
+        float: left
+        overflow: hidden
+        cursor: default
+        font-size: 12px
+        height: 16px
+        margin: 3px
+        padding: 1px 3px
+        color: #fff
+        background: #356eb0
+        border-radius: 1px
+        white-space: nowrap
+        box-sizing: content-box
+
+
+      .destroy
+        float: left
+        margin-left: 4px
+        margin-top: 5px
+        width: 8px
+        height: 7px
+        background: url("/images/token-item-close.png") no-repeat
+        cursor: pointer
+      .value
+        float: left
+
+    .token-item.highlighted
+      background: #e3783e
+        
+
+
+  .token-input
+    float: left
+    margin: 0px
+    padding: 0px
+
+    input
+      border: 0
+      width: 200px
+      margin: 2px 0
+      height: 15px
+      font-size: 11px
+      -webkit-appearance: caret

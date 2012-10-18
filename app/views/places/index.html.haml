@@ -1,0 +1,55 @@
+= render partial: 'places/filter'
+
+#h-shadow
+#map
+
+#results-full.hide
+  %table
+    %thead
+      %tr
+        %td{width: 200}
+          %span.places-list-sort{by: :name}
+            Название
+        %td{width: 80}
+          %span.places-list-sort{by: :average_check}
+            Средний счёт
+        %td{width: 50}
+          %span.places-list-sort{by: :min_sale}
+            Скидка
+
+  .places
+    %table
+      %tbody#places-list
+
+#results-tiny
+  Заведений найдено:
+  %span#places-found
+    0
+
+%script#place-list-item-template{type: "text/template"}
+  %td{width: 200}
+    %a.place-name{href: '#', target: "_blank"}
+      <%= name %>
+  %td{width: 80}
+    <%= average_check %> руб.
+  %td{width: 50}
+    <%= min_sale %>%
+  
+
+
+%script#place-balloon-template{type: "text/template"}
+  .balloon
+    .arrow
+      %img{src: '/images/bubble-arrow.png'}
+    .image
+      %img{src: "<%= avatar_preview %>".html_safe}
+
+      .name
+        <%= name %>
+
+
+#modal-background.hide{style: "width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; background: #000; opacity: 0.8;"}
+
+#modal-window.hide
+
+   

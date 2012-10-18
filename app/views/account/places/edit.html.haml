@@ -1,0 +1,10 @@
+%h2
+  = link_to 'Мои заведения', account_places_path
+  &rarr;
+  = link_to @place.name, account_place_path(@place)
+  &rarr;
+  Основное
+
+%hr
+
+= render partial: 'account/places/form', locals: {place: @place, url: account_place_path(@place)}

@@ -1,0 +1,12 @@
+.row
+  .span12
+    %legend
+      XXX
+
+    #phone-number{class: @user.state_confirmed? ? 'hide' : ''}
+      %input{type: :text}
+      %input{type: :submit}
+
+    #phone-confirmation-form{class: @user.state_fresh? ? 'hide' : ''}
+      %input{type: :text}
+      %input{type: :submit}

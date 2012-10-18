@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  place_id: 1
+  date: 2012-06-22 14:26:43
+  persons_number: 1
+  comment: MyText
+
+two:
+  user_id: 1
+  place_id: 1
+  date: 2012-06-22 14:26:43
+  persons_number: 1
+  comment: MyText

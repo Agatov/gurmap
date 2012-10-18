@@ -1,0 +1,123 @@
+@import "sassy-buttons"
+
+$hover-color: #ddd
+$active-color: #333
+
+#pre-order
+  .button
+    width: 220px
+    @include sassy-button("glass", 0, 20px, #333, #000)
+    text-align: center
+
+  .info
+    width: 272px
+    margin-top: 10px
+    border-top: 1px solid #ddd
+    padding: 5px
+
+
+#order-form
+  width: 275px
+  padding: 10px 0
+
+  .name
+    width: 240px
+    height: 25px
+    border: 1px solid #ccc
+    padding: 10px
+    cursor: pointer
+    background: #000
+    font-size: 30px
+    color: #fff
+    text-align: center
+
+  .section
+    margin-bottom: 10px
+    //border-bottom: 1px solid #ddd
+    //padding-bottom: 2px
+    font-size: 18px
+    font-family: "PTSans-normal"
+
+  hr
+    height: 2px
+    color: #ddd
+    background-color: #ddd
+
+  #order-form-submit
+    margin-top: 15px
+    width: 220px
+    @include sassy-button("glass", 0, 20px, #333, #000)
+    text-align: center
+    display: none
+
+
+  #order-form-datepicker
+    margin-top: 15px
+
+    .header
+      width: 235px
+      @include sassy-button("glass", 0, 14px, #333, #000)
+      text-align: center
+      display: none
+
+    .days
+      width: 275px
+      height: 55px
+      clear: both
+      .day
+        float: left
+        width: 55px
+        height: 55px
+        border: 0px solid #ccc
+        border-width: 1px 1px 1px 0
+        color: #000
+        cursor: pointer
+        box-sizing: border-box
+        .wday
+          text-align: center
+          font-size: 26px
+          line-height: 20px
+          padding-top: 5px
+          box-sizing: border-box
+          height: 30px
+        .date
+          font-size: 11px
+          text-align: center
+
+      .day:hover
+        background: $hover-color
+      .day.active
+        //background: $active-color
+        background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#111))
+        color: #fff
+
+    .hours
+      width: 275px
+      margin-top: 5px
+      .hour
+        float: left
+        width: 53px
+        margin-right: 2px
+        height: 50px
+        margin-bottom: 2px
+        padding-top: 5px
+        border: 1px solid #ddd
+        //border-width: 1px 0 0 0
+        color: #000
+        cursor: pointer
+        text-align: center
+        box-sizing: border-box
+
+      .hour:hover
+        //background: $hover-color
+        background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#bbb))
+      .hour.active
+        //background: $active-color
+        background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#111))
+        color: #fff
+
+    .ready-button
+      width: 220px
+      @include sassy-button("glass", 0, 20px, #333, #000)
+      text-align: center
+    

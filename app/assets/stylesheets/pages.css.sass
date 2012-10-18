@@ -1,0 +1,38 @@
+@import "sassy-buttons"
+
+#page-topbar
+  height: 100px
+  width: 100%
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee))
+
+#page-content
+  margin-top: 25px
+  color: #000
+  width: 600px
+
+  h1
+    margin-bottom: 15px
+    font-family: "Verdana"
+  p
+    font-size: 16px
+    font-family: "PTSans-normal"
+    line-height: 160%
+
+.page-text-block
+  color: #333
+  font-size: 13px
+  font-family: "Helvetica"
+  line-height: 1.4
+
+  h3
+    color: #000
+
+#page-about-start-work-button
+  @include sassy-button("matte", 50px, 40px, #356eb0, #356eb0)
+  &:hover
+    text-decoration: none
+
+#page-h1
+  font-size: 50px
+  font-family: "PTSans-bold"
+  color: #000

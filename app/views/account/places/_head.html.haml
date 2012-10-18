@@ -1,0 +1,17 @@
+.row
+  .span3
+    = image_tag @place.avatar_url(:thumb)
+  .span9
+    %h1
+      = @place.name
+      %small
+        %br
+        = @place.address
+
+    %ul#account-tabs.nav.nav-tabs
+      %li.active
+        = link_to 'Расписание', schedule_account_place_path(@place)
+      %li
+        = link_to 'Фотографии', places_path
+      %li
+        = link_to 'Основное', edit_account_place_path(@place)

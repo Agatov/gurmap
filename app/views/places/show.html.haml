@@ -1,0 +1,104 @@
+%script#day-template{type: "text/template"}
+  .wday
+    <%= wday %>
+  .date
+    <%= date %>
+
+%script#hour-template{type: "text/template"}
+  <%= hour %>
+  %br
+  <%= sale %>%
+
+%script#order-date-picker-template{type: "text/template"}
+  .header.hide
+  %hr
+  .section
+    2. Доступные даты:
+  .days
+  %hr
+  .section
+    3. Доступное время и скидки:
+  .hours
+
+%script#order-persons-picker-template{type: "text/template"}
+  .decrease
+    = image_tag '/images/left.png'
+  .value
+  .increase
+    = image_tag '/images/right.png'
+
+.container#place{place_id: @place.id}
+  .row.info
+    .span8.name
+      %h1
+        = @place.name
+      .address
+        = @place.address
+    .span2
+      .name
+        $5000
+      .small
+        средний счёт
+    .span2.sale
+      .name
+        20% - 30%
+      .small
+        диапазон скидок
+      
+    
+  .row.main
+    .span8
+      #slides
+        .slides_container
+          - @place.photos.each do |photo|
+            .slides
+              = image_tag photo.image_url
+
+      %ul.nav.nav-tabs{style: 'margin-top: 15px;'}
+        %li{class: params[:action] == 'show' ? 'active' : ''}
+          = link_to 'Описание', place_path(@place)
+        %li{class: params[:action] == 'menu' ? 'active' : ''}
+          = link_to 'Выдержки из меню', menu_place_path(@place)
+        %li
+          %a{href: '#'}
+            Комментарии (30)
+        %li{class: params[:action] == 'contacts' ? 'active' : ''}
+          = link_to 'Контакты', contacts_place_path(@place)
+
+      .content
+        - case params[:action]
+          - when 'show'
+            = render partial: 'places/description', locals: {place: @place}
+          - when 'menu'
+            = render partial: 'places/menu', locals: {place: @place}
+          - when 'contacts'
+            = render partial: 'places/contacts', locals: {place: @place}
+
+      -#
+        #description
+        = simple_format @place.description
+    .span4
+      #order-ready.hide
+        Спасибо за использование нашего сервиса!
+        В ближайшее время с вами свяжется менеджер ресторана.
+
+
+      #pre-order
+        .button
+          Забронировать
+        .info
+          Забронируйте стол и получите скидку до 55% совершенно бесплатно
+
+      
+      #order-form.hide
+        .section
+          1. Количество персон:
+
+        #persons-number-picker.number-picker
+
+        #order-form-datepicker
+
+          
+
+        #order-form-submit.hide
+          Забронировать

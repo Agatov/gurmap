@@ -1,0 +1,8 @@
+
+- if photo.id
+  %li.span2.photo-item{"photo-id" => photo.id}
+    %a{:href => photo.image_url, target: '_blank'}
+      = image_tag photo.image_url(:list) if photo.image?
+
+    .slide2
+      %i.icon-remove.icon-white.remove-photo{rel: account_place_photo_path(photo.place_id, photo)}

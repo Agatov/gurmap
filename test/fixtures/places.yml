@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  category_id: 1
+  name: MyString
+  avatar: MyString
+  type_cd: 1
+  state_cd: 1
+  description: MyText
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  category_id: 1
+  name: MyString
+  avatar: MyString
+  type_cd: 1
+  state_cd: 1
+  description: MyText
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5

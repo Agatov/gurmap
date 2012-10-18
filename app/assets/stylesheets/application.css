@@ -1,0 +1,28 @@
+/*
+ *= require bootstrap-responsive
+ *= require bootstrap
+ *= require jquery.ui.all
+ *= require uploadify
+ *= require redactor
+ *= require_self
+ *= require_tree .
+*/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+  padding-left: 2px;
+  width: 6px;
+  background: #ccc;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  background: #fff;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}

@@ -1,0 +1,25 @@
+!!! 5
+%html
+  %head
+    = stylesheet_link_tag    "application", :media => "all"
+    = csrf_meta_tags
+    = javascript_include_tag "application"
+  %body{style: 'padding-top: 80px'}
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          .nav-collapse
+            %ul.nav
+              %li
+                = link_to "Мои заведения", account_places_path
+              %li
+                = link_to "Добавить заведение", new_account_place_path
+                
+            %ul.nav.pull-right
+              %li
+                - if account_signed_in?
+                  = link_to current_account.email, destroy_account_session_path, method: :delete
+    .container
+      = yield
+      = yield :scripts

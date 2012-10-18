@@ -1,0 +1,71 @@
+.left
+  .photos
+    - @place.photos.each do |photo|
+      .photo
+        = image_tag photo.image_url(:full)
+
+  -# image_tag @place.photos.first.image_url(:full)
+
+  .close#close-place-window
+    
+  .info
+    .name
+      = @place.name
+      %span.address
+        = @place.address
+.right
+  #order-ready.hide
+    Спасибо за использование нашего сервиса!
+    В ближайшее время с вами свяжется менеджер ресторана.
+
+
+  #pre-order
+    .button
+      Забронировать
+    .info
+      Забронируйте стол и получите скидку до 55% совершенно бесплатно
+
+  
+  #order-form.hide
+    .section
+      1. Количество персон:
+
+    #persons-number-picker.number-picker
+
+    #order-form-datepicker
+
+      
+
+    #order-form-submit.hide
+      Оформить заказ
+
+
+
+%script#day-template{type: "text/template"}
+  .wday
+    <%= wday %>
+  .date
+    <%= date %>
+
+%script#hour-template{type: "text/template"}
+  <%= hour %>
+  %br
+  <%= sale %>%
+
+%script#order-date-picker-template{type: "text/template"}
+  .header.hide
+  %hr
+  .section
+    2. Доступные даты:
+  .days
+  %hr
+  .section
+    3. Доступное время и скидки:
+  .hours
+
+%script#order-persons-picker-template{type: "text/template"}
+  .decrease
+    = image_tag '/images/left.png'
+  .value
+  .increase
+    = image_tag '/images/right.png'

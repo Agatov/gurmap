@@ -1,0 +1,6 @@
+= simple_form_for schedule, url: account_schedules_path do |f|
+  = f.input :place_id, as: :hidden
+  = f.input :day_of_week, as: :select, collection: t("date.day_names").each_with_index
+  = f.input :start_time, minute_step: 30
+  = f.input :end_time, minute_step: 30
+  = f.input :sale, as: :select, collection: [10, 15, 20, 25, 30, 35, 40, 45, 50, 55], selected: 30

@@ -1,0 +1,13 @@
+!!! 5
+%html
+  %head
+    %title
+      GURMAP - бесплатные скидки в рестораны и кафе.
+    = stylesheet_link_tag    "application", :media => "all"
+    = csrf_meta_tags
+    = javascript_include_tag "http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"
+    = javascript_include_tag "application"
+  %body
+    = yield
+    = render partial: 'layouts/about'
+    = render partial: 'layouts/login_modal'

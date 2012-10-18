@@ -1,0 +1,22 @@
+%legend
+  Мои заведения
+
+%table.table
+  %thead
+    %th
+      Название
+    %th
+      Адрес
+    %th
+      = '...'
+  %tbody
+    - @places.each do |place|
+      %tr
+        %td
+          = link_to place.name, account_place_path(place)
+        %td
+          = place.address
+        %td
+          = link_to 'Редактировать', edit_account_place_path(place)
+          %br
+          = link_to 'Удалить', account_places_path

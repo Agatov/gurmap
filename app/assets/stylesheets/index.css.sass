@@ -1,0 +1,65 @@
+@import "sassy-buttons"
+
+@font-face
+  font-family: "PTSans-normal"
+  src: local("PTSans-normal") 
+  src: url("/assets/PTS55F.ttf") format('truetype')
+
+
+body
+  background: #fff
+  font-family: "Verdana", "Georgia", "Times new roman"
+
+#map
+  width: 100%
+  min-width: 1000px
+  height: 10px
+  position: relative
+
+#results-tiny
+  position: absolute
+  top: 100px
+  left: 92px
+  height: 25px
+  width: 450px
+  background: #356eb0
+  border-radius: 0 0 15px 15px
+  text-align: center
+  color: #fff
+  box-sizing: border-box
+  padding-top: 3px
+  cursor: pointer
+
+#results-full
+  position: absolute
+  top: 100px
+  left: 92px
+  width: 450px
+  height: 420px
+  background: #fff
+
+a
+  color: #356eb0
+
+#filter
+  height: 100px
+  width: 100%
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee))
+  z-index: 100
+
+#v-shadow
+  float: left
+  width: 10px
+  height: 555px
+  background: url("/images/v-shadow.png") repeat-y
+  display: block
+  position: relative
+  z-index: 79
+  margin-right: -10px
+
+#h-shadow
+  width: 100%
+  height: 10px
+  position: absolute
+  z-index: 79
+  background: url("/images/h-shadow-dark.png") repeat-x

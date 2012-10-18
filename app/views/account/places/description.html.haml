@@ -1,0 +1,14 @@
+%h2
+  = link_to 'Мои заведения', account_places_path
+  &rarr;
+  = link_to @place.name, account_place_path(@place)
+  &rarr;
+  Описание
+
+%hr
+
+= simple_form_for @place, html: {class: 'form-vertical'}, url: account_place_path(@place) do |f|
+  = f.input :description
+
+  .form-actions
+    = f.submit 'Готово', class: ['btn', 'btn-large', 'btn-info']

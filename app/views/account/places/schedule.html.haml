@@ -1,0 +1,35 @@
+%h2
+  = link_to 'Мои заведения', account_places_path
+  &rarr;
+  = link_to @place.name, account_place_path(@place)
+  &rarr;
+  Расписание работы
+
+%hr
+
+%a#new-schedule.btn.btn-large{href: new_account_schedule_path(place_id: @place.id)}
+  Добавить
+
+#schedule{style: 'margin-top: 15px'}
+  = render partial: '/account/schedules/schedule', locals: {schedule: @schedule}
+
+
+#schedule-form.modal.hide
+  .modal-header
+    %button.close{type: 'button', 'data-dismiss' => 'modal'}
+      x
+    %h3
+      Форма
+  .modal-body
+    
+  .modal-footer
+    %a.btn{'data-dismiss' => 'modal'}
+      Close
+    %a#update-schedule.btn.btn-primary.hide
+      Save changes
+    %a#create-schedule.btn.btn-primary.hide()
+      Add
+
+
+      
+
