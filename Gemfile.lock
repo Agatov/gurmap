@@ -88,6 +88,11 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
+    faraday_middleware (0.8.8)
+      faraday (>= 0.7.4, < 0.9)
+    faraday_middleware-parse_oj (0.1)
+      faraday_middleware (~> 0.8)
+      oj (~> 1.2)
     flash_cookie_session (1.1.3)
       rails (~> 3.0)
     fssm (0.2.9)
@@ -141,6 +146,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    oj (1.4.3)
     omniauth (1.1.1)
       hashie (~> 1.2)
       rack
@@ -223,6 +229,12 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    vkontakte_api (1.0.4)
+      faraday (~> 0.8)
+      faraday_middleware (~> 0.8)
+      faraday_middleware-parse_oj (~> 0.1)
+      hashie (~> 1.2)
+      oauth2 (~> 0.8)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -259,3 +271,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   underscore-rails
   unicorn
+  vkontakte_api

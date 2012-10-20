@@ -46,6 +46,8 @@ gem 'omniauth-vkontakte'
 #gem 'omniauth-twitter'
 #gem 'omniauth-facebook'
 
+gem 'vkontakte_api'
+
 
 gem 'httparty'
 
