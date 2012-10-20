@@ -2,8 +2,34 @@
 
 #login-modal-background
   #login-modal
-    .content
+    .hello
       Войдите через
       %a.oauth-link{href: '/auth/vkontakte'}
         Вконтакте
       чтобы начать пользоваться GURMAP.
+    .phone-request
+      .user-info
+        .avatar
+        .name
+          Кирилл Агатов
+
+      %p
+        Для продолжения регистрации введите свой номер телефона в поле ниже. На этот номер вам придет проверочный код,
+        поэтому вводите правильный номер.
+
+      %form#phone-form{action: set_phone_users_path}
+        .phone-field
+          +7
+          %input{type: :text, name: :phone}
+        .submit-field
+          %input.btn{type: :button, value: "OK", id: "phone-submit-button"}
+
+    .phone-confirm
+      %p
+        Вам была отправлена смс с кодом подтверждения. Введите его в поле ниже
+
+      %form#phone-confirm-form{action: confirm_phone_users_path}
+        .code-field
+          %input{type: :text, name: :code}
+        .submit-field
+          %input.btn{type: :button, value: "OK", id: "phone-confirm-submit-button"}

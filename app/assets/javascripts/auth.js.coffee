@@ -1,9 +1,27 @@
 $ ->
+
+  window.login_modal = new LoginModal()
+
+
+
+  if $("#oauth-success")
+    _oauth = $("#oauth-success")
+    if $.trim(_oauth.text()) == 'true'
+      if window.opener
+        if _oauth.attr("new_user") == 'true'
+          window.opener.login_modal.display_phone_request_screen()
+        else
+          window.opener.logon_modal.hide()
+          #window.opener.reload()
+
+    window.close()
+
+
+
+
   $("#login-link").bind("click",
     ->
-      show_login_modal()
-
-      false
+      login_modal.show()
   )
 
   $(".oauth-link").bind("click",

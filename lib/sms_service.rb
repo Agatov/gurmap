@@ -1,0 +1,19 @@
+class SmsService
+  include HTTParty
+
+
+  def self.send_phone_confirmation_code(phone, code)
+    SmsService.send(phone, "your confirmation code is #{code}")
+  end
+
+  def self.send(phone, text)
+    self.class.get("http://api.sms24x7.ru", query: {
+      method: 'push_msg',
+      email: 'agatovs@gmail.com',
+      password: 'avv6rqE',
+      phone: phone,
+      text: text,
+      sender_name: 'GURMAP',
+    })
+  end
+end

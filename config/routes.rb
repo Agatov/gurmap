@@ -14,8 +14,18 @@ Sale::Application.routes.draw do
     controllers: { sessions: "account/auth/sessions", registrations: 'account/auth/registrations' }
 
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    post :set_phone, on: :collection
+    post :confirm_phone, on: :collection
+  end
   resources :authentications, only: [:create, :destroy]
+
+
+  # На тест!!!
+  resources :profile, only: [:index] do
+    post :set_phone, on: :collection
+    post :confirm_phone, on: :collection
+  end
 
   resources :places, only: [:index, :show] do
     get :schedule, on: :member
