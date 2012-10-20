@@ -12,7 +12,7 @@ class AuthenticationsController < ApplicationController
       @new_user = false
       login authentication.user
     else
-      @user = User.new(provider: @auth['provider'])
+      @user = User.new()
 
       # В начале у нас будет работа только с VK. Поэтому и код пишем соответственно
 
