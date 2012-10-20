@@ -1,5 +1,5 @@
 class AuthenticationsController < ApplicationController
-
+  include ApplicationHelper
   layout "authentication"
 
   def create
