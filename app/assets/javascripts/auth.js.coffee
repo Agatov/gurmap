@@ -1,9 +1,5 @@
 $ ->
 
-  window.login_modal = new LoginModal()
-
-
-
   if $("#oauth-success")
     _oauth = $("#oauth-success")
     if $.trim(_oauth.text()) == 'true'

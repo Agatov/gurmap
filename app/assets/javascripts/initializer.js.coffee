@@ -2,6 +2,8 @@ $ ->
   $(document).ready(
     ->
 
+      window.login_modal = new LoginModal()
+
       $(".places-list-sort").bind("click",
         ->
           sort_by = $(this).attr("by")
