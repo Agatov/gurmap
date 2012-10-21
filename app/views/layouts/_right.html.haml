@@ -1,6 +1,10 @@
 .second-floor
-  %a.login-link{href: "#"}
-    Войти
+
+  - if user_logged_in?
+    = current_user.get_name
+  - else
+    %a.login-link{href: "#"}
+      Войти
 .first-floor
   %a{href: info_pages_path}
     О проекте

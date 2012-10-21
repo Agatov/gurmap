@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_one :authentication
 
-  as_enum :phone_state, [:fresh, :confirmed]
+  as_enum :phone_state, [:fresh, :confirmed], prefix: true
 
   mount_uploader :avatar, UserAvatarUploader
 
@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 
   def avatar_preview
     avatar_url(:preview)
+  end
+
+  def get_name
+    "#{first_name} #{last_name}"
   end
 
   def confirm_phone(code)

@@ -30,10 +30,25 @@
   #pre-order
 
     - if user_logged_in?
-      .button
-        Забронировать
-      .info
-        Забронируйте стол и получите скидку до 55% совершенно бесплатно
+
+      - if current_user.phone_state_confirmed?
+
+        .button
+          Забронировать
+        .info
+          Забронируйте стол и получите скидку до 55% совершенно бесплатно
+
+      - elsif current_user.phone_state_fresh?
+        Уважаемый
+        %strong
+          = "#{current_user.get_name}!"
+
+        Для доступа к этому функионалу, вы должны
+        %a.phone-confirm-link.from-place-modal{href: '#'}
+          подтвердить
+        указанный вами номер телефона
+
+
     - else
       %a.login-link.from-place-modal{href: '#'}
         Авторизуйтесь

@@ -25,6 +25,7 @@ Sale::Application.routes.draw do
   resources :profile, only: [:index] do
     post :set_phone, on: :collection
     post :confirm_phone, on: :collection
+    get :fake_login, on: :collection
   end
 
   resources :places, only: [:index, :show] do

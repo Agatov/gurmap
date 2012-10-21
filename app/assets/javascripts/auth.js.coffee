@@ -25,6 +25,15 @@ $ ->
       false
   )
 
+  $(".phone-confirm-link").live("click",
+    ->
+      if $(this).hasClass("from-place-modal")
+        close_place_modal()
+
+      login_modal.display_phone_request_screen()
+      false
+  )
+
   $(".oauth-link").bind("click",
     ->
       (window.open($(this).attr("href"), "vkontakte", "location,top=0")).focus()

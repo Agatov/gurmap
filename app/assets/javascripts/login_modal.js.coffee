@@ -30,8 +30,7 @@ class window.LoginModal
     @phone_submit.bind("click", @submit_phone)
     @close_button.bind("click", @hide)
 
-    #@hello_screen.show()
-    @display_phone_request_screen()
+    @hello_screen.show()
 
 
   show: ->
@@ -86,10 +85,15 @@ class window.LoginModal
     @user_info.show()
 
     @hello_screen.hide()
+    @phone_confirm_screen.hide()
     @phone_request_screen.show()
+
+    if @closed
+      @show()
 
   display_phone_confirm_screen: ->
 
+    @hello_screen.hide()
     @phone_request_screen.hide()
     @phone_confirm_screen.show()
 
