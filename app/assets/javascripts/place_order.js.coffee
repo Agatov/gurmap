@@ -23,7 +23,7 @@ class window.PlaceOrder
     $(@personspicker).bind('value_changed', @persons_number_changed)
     $(@personspicker).bind('value_changed', @show_submit)
 
-    $("#pre-order").bind('click', @make_order)
+    $("#pre-order .button").bind('click', @make_order)
 
     @submit_el.bind('click', @create_order)
 

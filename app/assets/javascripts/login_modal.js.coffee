@@ -11,9 +11,13 @@ class window.LoginModal
     @phone_submit = $("#phone-submit-button")
     @el = $("#login-modal")
 
+    @user_info = $("#login-modal .user-info")
+
     @hello_screen = $("#login-modal .hello")
     @phone_request_screen = $("#login-modal .phone-request")
     @phone_confirm_screen = $("#login-modal .phone-confirm")
+
+    @close_button = $("#login-modal .title .action.close")
 
     @initialize()
 
@@ -24,8 +28,10 @@ class window.LoginModal
 
     #@background.bind("click", @hide)
     @phone_submit.bind("click", @submit_phone)
+    @close_button.bind("click", @hide)
 
-    @hello_screen.show()
+    #@hello_screen.show()
+    @display_phone_request_screen()
 
 
   show: ->
@@ -76,10 +82,14 @@ class window.LoginModal
   # States
 
   display_phone_request_screen: ->
+
+    @user_info.show()
+
     @hello_screen.hide()
     @phone_request_screen.show()
 
   display_phone_confirm_screen: ->
+
     @phone_request_screen.hide()
     @phone_confirm_screen.show()
 

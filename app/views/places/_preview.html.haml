@@ -15,15 +15,29 @@
         = @place.address
 .right
   #order-ready.hide
-    Спасибо за использование нашего сервиса!
-    В ближайшее время с вами свяжется менеджер ресторана.
+
+    Ваш заказ готов. Для активации расскажите о нем в социальной сети
+    %hr
+    %a.social-share{href: "http://vk.com/share.php?url=gurmap.ru&title=Ololo, Guramp&image=http://gurmap.ru/images/logo.png&description=LOLOLOLO&noparse=true"}
+      Рассказать
+
+
+
+    -#Спасибо за использование нашего сервиса!
+    -#В ближайшее время с вами свяжется менеджер ресторана.
 
 
   #pre-order
-    .button
-      Забронировать
-    .info
-      Забронируйте стол и получите скидку до 55% совершенно бесплатно
+
+    - if user_logged_in?
+      .button
+        Забронировать
+      .info
+        Забронируйте стол и получите скидку до 55% совершенно бесплатно
+    - else
+      %a.login-link.from-place-modal{href: '#'}
+        Авторизуйтесь
+      , чтобы получить доступ к функционалу бронирования
 
   
   #order-form.hide

@@ -15,9 +15,14 @@ $ ->
 
 
 
-  $("#login-link").bind("click",
+  $(".login-link").live("click",
     ->
+
+      if $(this).hasClass("from-place-modal")
+        close_place_modal()
+
       login_modal.show()
+      false
   )
 
   $(".oauth-link").bind("click",

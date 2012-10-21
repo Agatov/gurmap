@@ -6,15 +6,15 @@ class AuthenticationsController < ApplicationController
     @auth = request.env['omniauth.auth']
     @new_user = true
 
-    authentication = Authentication.find_or_create_by_provider_and_uid(@auth['provider'], @auth['uid'])
-    authentication.token = @auth['credentials']['token']
+    @authentication = Authentication.find_or_create_by_provider_and_uid(@auth['provider'], @auth['uid'])
+    @authentication.token = @auth['credentials']['token']
 
     if authentication.user.present?
       @new_user = false
-      login authentication.user
+      login @authentication.user
 
       # Сохраняем, дабы не проебать токен
-      authentication.save
+      @authentication.save
     else
       @user = User.new()
 
@@ -24,8 +24,8 @@ class AuthenticationsController < ApplicationController
       @user.last_name = @auth['info']['last_name']
       @user.remote_avatar_url = @auth.extra.raw_info.photo_big!
 
-      authentication.user = @user
-      authentication.save
+      @authentication.user = @user
+      @authentication.save
 
       login @user
     end

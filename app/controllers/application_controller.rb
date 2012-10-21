@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def user_logged_in?
     return false if session[:user_id] and session[:user_id].empty?
-    retrun session[:user_id] ? true : false
+    return session[:user_id] ? true : false
   end
 
   helper_method :current_user

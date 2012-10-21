@@ -2,25 +2,50 @@
 
 #login-modal-background
   #login-modal
+
+    .title
+      .name
+        Авторизация
+      .action.close
+        X
+
+
+    .user-info
+      .avatar
+      .name
+        %strong
+          Кирилл Агатов,
+        спасибо что зашли! ;)
+
+
     .hello
+
+      Чтобы воспользоваться нашим сервисом, вы должны быть авторизованы через социальную сеть.
+      На данный момент мы поддерживаем только авторизацию через ВКонтакте.
+
+      %hr
+
+      %a.oauth-link{href: '/auth/vkontakte'}
+        Войти через VKontakte
+
+    -#
       Войдите через
       %a.oauth-link{href: '/auth/vkontakte'}
         Вконтакте
       чтобы начать пользоваться GURMAP.
+
+
+
     .phone-request
-      .user-info
-        .avatar
-        .name
-          Кирилл Агатов
 
       %p
-        Для продолжения регистрации введите свой номер телефона в поле ниже. На этот номер вам придет проверочный код,
-        поэтому вводите правильный номер.
+        Теперь нам необходим ваш номер телефона. Он будет использоваться для уведомления вас о статусе заказа,
+        а также будет отправляться ресторанам, чтобы те могли с вами связаться и уточнить все детали заказа.
 
       %form#phone-form{action: set_phone_users_path}
         .phone-field
           +7
-          %input{type: :text, name: :phone}
+          %input{type: :text, name: :phone, placeholder: "XXX XXX-XX-XX"}
         .submit-field
           %input.btn{type: :button, value: "OK", id: "phone-submit-button"}
 
@@ -33,3 +58,8 @@
           %input{type: :text, name: :code}
         .submit-field
           %input.btn{type: :button, value: "OK", id: "phone-confirm-submit-button"}
+
+      %p
+        Если смс не дошло, или вы ввели неправильный номер, попробуйте ввести номер
+        %a{href: '#'}
+          еще раз

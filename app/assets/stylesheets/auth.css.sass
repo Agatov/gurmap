@@ -1,3 +1,5 @@
+@import "sassy-buttons"
+
 #login-modal-overlay
   width: 100%
   height: 100%
@@ -7,7 +9,7 @@
   z-index: 100
   display: none
   background: #000
-  opacity: 0.8
+  opacity: 0.5
 
 #login-modal-background
   width: 100%
@@ -19,53 +21,93 @@
   display: none
 
 #login-modal
-  margin: 125px auto
+  margin: 150px auto
   width: 600px
-  height: 250px
+  height: 200px
   z-index: 999
   display: none
-  padding: 30px
   background: #fff
+  box-shadow:  0 0 30px #666
+
+  .title
+    clear: both
+    width: 600px
+    height:  40px
+    background:  #eee
+    border-bottom:  1px solid #ddd
+    color:  #333
+    //margin-bottom: 15px
+
+    .name
+      font-size: 18px
+      float: left
+      width:  530px
+      height:  20px
+      padding:  10px
+
+    .action.close
+      text-align: right
+      font-size: 18px
+      float: left
+      width: 30px
+      height: 20px
+      padding: 10px
+      cursor: pointer
+
 
   .hello
     display: none
-    font-size: 16px
+    width: 580px
+    padding:  10px
+
+    a
+      @include sassy-button("matte", 50px, 18px, #356eb0, #356eb0)
+      &:hover
+        text-decoration: none
+
+
+
+  .user-info
+    display: none
+    width: 580px
+    height: 20px
+    background: #ddd
+    border-bottom:  1px solid #ccc
+    padding:  5px 10px
+    clear: both
+
+    .avatar
+      float: left
+      width:  20px
+      height:  20px
+      background: #b91859
+
+    .name
+      float: left
+      width: 500px
+      height:  20px
+      margin-left: 10px
+
 
   .phone-request
     display: none
-    .user-info
-      width: 100%
-      height: 70px
-      margin-bottom: 15px
-      border-bottom:  2px dashed #ddd
-
-      .avatar
-        float: left
-        width: 50px
-        height: 50px
-        margin-right: 10px
-        background: #5eb95e
-
-      .name
-        float: left
-        width:  500px
-        height:  40px
-        padding-top: 10px
-        font-size: 24px
+    width:  580px
+    padding:  10px
 
     #phone-form
-      margin: 0px auto
+      //margin: 0px auto
       margin-top: 15px
       width: 450px
       clear: both
       .phone-field
         float: left
         height: 40px
-        width: 350px
-        font-size: 18px
+        width: 200px
+        font-size: 16px
         input
-          font-size: 18px
-          width: 300px
+          font-size: 16px
+          padding-top: 3px
+          width: 150px
           border:  1px solid #eee
       .submit-field
         float: left
@@ -75,6 +117,8 @@
 
   .phone-confirm
     display: none
+    width: 580px
+    padding:  10px
     #phone-confirm-form
       clear: both
       width: 300px
