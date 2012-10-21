@@ -21,10 +21,10 @@ $ ->
       @show_current()
 
     show_current: ->
-      $($(".#{@el_class}")[@current - 1]).show("slide", {direction: "right"})
+      $($(".#{@el_class}")[@current - 1]).show()
 
     hide_current: ->
-      $($(".#{@el_class}")[@current - 1]).hide("slide", {direction: "left"})
+      $($(".#{@el_class}")[@current - 1]).hide()
 
     inc_current: ->
       unless @current == @photos_count
