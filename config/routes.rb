@@ -18,7 +18,7 @@ Sale::Application.routes.draw do
     post :set_phone, on: :collection
     post :confirm_phone, on: :collection
   end
-  resources :authentications, only: [:create, :destroy]
+  resources :authentications, only: [:create]
 
 
   # На тест!!!
@@ -26,6 +26,7 @@ Sale::Application.routes.draw do
     post :set_phone, on: :collection
     post :confirm_phone, on: :collection
     get :fake_login, on: :collection
+    get :fake_logout, on: :collection
   end
 
   resources :places, only: [:index, :show] do

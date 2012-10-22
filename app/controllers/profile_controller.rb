@@ -10,4 +10,9 @@ class ProfileController < ApplicationController
     login User.first
     redirect_to root_path
   end
+
+  def fake_logout
+    logout
+    redirect_to root_path
+  end
 end
