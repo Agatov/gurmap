@@ -7,7 +7,7 @@ $ ->
         if _oauth.attr("new_user") == 'true'
           window.opener.login_modal.display_phone_request_screen()
         else
-          window.opener.logon_modal.hide()
+          window.opener.login_modal.hide()
           #window.opener.reload()
 
     window.close()
