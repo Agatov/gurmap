@@ -18,7 +18,8 @@
 
     Ваш заказ готов. Для активации расскажите о нем в социальной сети
     %hr
-    %a.social-share{href: "http://vk.com/share.php?url=gurmap.ru&title=Ololo, Guramp&image=http://gurmap.ru/images/logo.png&description=LOLOLOLO&noparse=true"}
+    - params = order_social_params("GO-GO chicks", 2342)
+    %a.social-share{href: vk_social_url(params)}
       Рассказать
 
 
