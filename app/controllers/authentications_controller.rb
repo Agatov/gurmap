@@ -9,7 +9,7 @@ class AuthenticationsController < ApplicationController
     @authentication = Authentication.find_or_create_by_provider_and_uid(@auth['provider'], @auth['uid'])
     @authentication.token = @auth['credentials']['token']
 
-    if authentication.user.present?
+    if @authentication.user.present?
       @new_user = false
       login @authentication.user
 
