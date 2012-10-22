@@ -44,6 +44,8 @@ class window.Tokenizer
     $("#tokenizer-placemark").hide()
     $('.token-input input').show()
     this.el.find('.token-input input').focus()
+
+    # Это устраревший функционал, пока оставлю тут эту хрень "на память"
     #taglist.dropdown_pane.open()
 
   to_string: ->
@@ -215,16 +217,15 @@ class window.Taglist
 
     @is_active = false
 
-    # Логично было бы перенести метом .find в FilterCollection
-    # Но это потом
-    this.dropdown_pane = _.find(fc.filters, (filter) ->
-        filter.rel == 'filter-input'
-      ).pane
+    # Вроде как блок ниже уже морально устарел. Должна использоваться какая-то другая панелька
+    #this.dropdown_pane = _.find(fc.filters, (filter) ->
+    #    filter.rel == 'filter-input'
+    #  ).pane
 
   initialize: ->
-    #_.bindAll(this, 'onkeypress')
+    _.bindAll(this, 'onkeypress')
 
-    #$("body").bind("keydown", @onkeypress)
+    $("body").bind("keydown", @onkeypress)
 
     $(this).keypress(
       ->

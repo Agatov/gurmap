@@ -60,6 +60,10 @@ class window.PlaceOrder
       }
       (data) ->
         if data.status == 'ok'
+
+          # Начинаем чекать.
+          window.order_checker = new OrderChecker($("#order-checker"), 1)
+
           console.log(data)
         else
           console.log('order error')
