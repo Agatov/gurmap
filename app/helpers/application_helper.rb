@@ -14,7 +14,7 @@ module ApplicationHelper
     return {
       url: "http://#{request.host}/#{order_id}",
       title: CGI.escape("I get 30% sale to #{place_name} with Gurmap"),
-      description: CGI.escape(I18n.translate("OLOLOLO"),
+      description: CGI.escape("OLOLOLLO"),
       image: "http://#{request.host}/images/logo.png"
     }
   end
