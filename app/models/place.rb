@@ -69,7 +69,7 @@ class Place < ActiveRecord::Base
         info = {
           wday: current_day.wday,
           dayname: I18n.localize(current_day, format: :wday),
-          datename: I18n.localize(current_day, format: :monthday),
+          datename: I18n.localize(current_day, format: "%d %b"),
           value: current_day.strftime("%Y-%m-%d"),
           hours: []
         }

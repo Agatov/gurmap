@@ -7,9 +7,12 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, UserAvatarUploader
 
+  validates :phone, length: {is: 10}
+
   acts_as_api
   include ApiV1::User
 
+  before_validation :parse_phone
   before_save :check_phone
 
   def avatar_preview
@@ -38,6 +41,10 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def parse_phone
+    self.phone = phone.gsub(/[^0-9]/, "")
+  end
 
   def check_phone
     if phone_changed?
