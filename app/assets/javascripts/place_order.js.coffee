@@ -61,6 +61,9 @@ class window.PlaceOrder
       (data) ->
         if data.status == 'ok'
 
+          # виджет "рассказать"
+
+
           # Начинаем чекать.
           window.order_checker = new OrderChecker($("#order-checker"), 1)
 

@@ -38,25 +38,21 @@ class window.OrderChecker
     @checks_num += 1
     console.log("checking... (#{@checks_num})")
 
-    if @checks_num == 3
-      @stop()
-      @view.show_checked()
-
-    ###
     _this = @
 
     $.get(
       @check_url,
       (data) ->
-        if data.status == 'valid'
+        if data.status == 'success'
 
-          @stop
-        else if data.status == 'invalid'
+          _this.stop())
+          _this.view.show_checked()
+        else if data.status == 'error'
           # Продолжаем, хуле
         else
-          # Произошла страшная хуйня
+          _this.stop()
+          _this.view.show_error()
     )
-    ###
 
 
 class window.OrderCheckerView

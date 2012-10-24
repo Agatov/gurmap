@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   attr_accessible :comment, :date, :persons_number, :place_id, :user_id
 
   belongs_to :place
+  belongs_to :user
 
   after_create :withdraw_account_balance
 
