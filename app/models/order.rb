@@ -4,6 +4,8 @@ class Order < ActiveRecord::Base
   belongs_to :place
   belongs_to :user
 
+  as_enum :state, [:fresh, :confirmed, :rejected], prefix: true
+
   after_create :withdraw_account_balance
 
 
