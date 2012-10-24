@@ -10,8 +10,6 @@ class window.OrderChecker
 
     @view = new OrderCheckerView(container)
 
-    @el =
-
     @initialize()
 
 
@@ -31,7 +29,7 @@ class window.OrderChecker
     @checks_num = 0
 
   check_url: ->
-    "/orders/{@id}/check"
+    "/orders/#{@id}/check"
 
   check: ->
 
@@ -41,11 +39,11 @@ class window.OrderChecker
     _this = @
 
     $.get(
-      @check_url,
+      @check_url(),
       (data) ->
         if data.status == 'success'
 
-          _this.stop())
+          _this.stop()
           _this.view.show_checked()
         else if data.status == 'error'
           # Продолжаем, хуле

@@ -12,7 +12,7 @@ module ApplicationHelper
 
   def order_social_params(order)
     return {
-      url: "http://#{request.host}/places/#{order.place.id}##{order_id}",
+      url: "http://#{request.host}/places/#{order.place.id}##{order.id}",
       title: CGI.escape("I get 30% sale to #{order.place.name} with Gurmap"),
       description: CGI.escape("OLOLOLLO"),
       image: "http://#{request.host}/images/logo.png"

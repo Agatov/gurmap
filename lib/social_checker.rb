@@ -1,6 +1,6 @@
 class SocialChecker
 
-  attr_accessor :uid, :token, :place_id, :order_id, :success?, :vk
+  attr_accessor :uid, :token, :place_id, :order_id, :success, :vk
 
   def initialize(options = {})
     self.uid = options[:uid]
@@ -8,7 +8,7 @@ class SocialChecker
     self.place_id = options[:place_id]
     self.order_id = options[:order_id]
 
-    self.success? = false
+    self.success = false
 
     self.vk = VkontakteApi::Client.new(token)
     self.vk.users.get(uid: uid)
@@ -31,10 +31,14 @@ class SocialChecker
 
   def check_one(post)
     if post.include? expected_url
-      self.success? = true 
+      self.success = true
     end
 
     self
+  end
+
+  def success?
+    success
   end
 
   def expected_url

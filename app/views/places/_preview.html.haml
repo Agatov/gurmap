@@ -16,11 +16,7 @@
 .right
   #order-ready.hide
 
-    Ваш заказ готов. Для активации расскажите о нем в социальной сети
-    %hr
-    - params = order_social_params("GO-GO chicks", 2342)
-    %a.social-share{href: vk_social_url(params)}
-      Рассказать
+    .social
 
 
     #order-checker
@@ -28,7 +24,13 @@
         Идет проверка...
 
       .checked
-        Все хорошо, ваш заказ в силе.
+
+        .message
+          Все хорошо, ваш заказ в силе.
+
+        .warning
+          Ни в коем случае не удаляйте сообщение с вашей стены в течение ближайших двух часов,
+          иначе скидка будет анулирована.
 
       .check-error
         Произошла ошибка. Свяжитесь с нашей командой поддержки.
@@ -110,3 +112,11 @@
   .value
   .increase
     = image_tag '/images/right.png'
+
+%script#social-repost-widget{type: "text/template"}
+  Ваш заказ готов. Для активации расскажите о нем в социальной сети
+
+  .buttons
+
+    %a.social-share{href: "<%= url %>".html_safe}
+      Рассказать

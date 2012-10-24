@@ -38,7 +38,9 @@ Sale::Application.routes.draw do
 
   resources :tags, only: [:index]
 
-  resources :orders, only: [:create, :destroy]
+  resources :orders, only: [:index, :create, :destroy] do
+    get :check, on: :member
+  end
 
   resources :pages, only: [] do
     get :about, on: :collection

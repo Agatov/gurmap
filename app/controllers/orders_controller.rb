@@ -2,11 +2,14 @@ class OrdersController < ApplicationController
   include ::HTTParty
   include ApplicationHelper
 
-  berofe_filter :find_order, only: [:check, :destroy]
+  before_filter :find_order, only: [:check, :destroy]
+
+  def index
+    render json: {status: :kokoko}
+  end
 
   def create
-    #@user = User.find(1)
-    begin
+    #begin
 
       @order = current_user.orders.create(params[:order])
 
@@ -19,30 +22,32 @@ class OrdersController < ApplicationController
       #  sender_name: 'GURMAP',
       #})
 
-      render json: {status: :ok, vk_social_url: vk_social_url(@order)}
-    rescue Exception => e
-      render json: {status: :error}
-    end
+      render json: {status: :ok, order_id: @order.id, vk_social_url: vk_social_url(@order)}
+    #rescue Exception => e
+    #  render json: {status: :error}
+    #end
   end
 
   def check
-    checker = SocialChecker.new({
-      uid: current_user.authentication.uid,
-      token: current_user.authentication.token,
-      place_id: @order.place_id,
-      order_id: @order.id,
-    })
+    #@checker = SocialChecker.new({
+    #  uid: current_user.authentication.uid,
+    #  token: current_user.authentication.token,
+    #  place_id: @order.place_id,
+    #  order_id: @order.id,
+    #})
+
+    render json: {status: :success}
 
 
-    respond_to do |format|
-      format.json {
-        if @checker.check.success?
-          render json: {status: :success}
-        else
-          render json: {status: :error}
-        end
-      } 
-    end
+    #respond_to do |format|
+    #  format.json {
+        #if @checker.check.success?
+          #render json: {status: :success}
+        #else
+          #render json: {status: :error}
+        #end
+    #  }
+    #end
   end
 
   def destroy

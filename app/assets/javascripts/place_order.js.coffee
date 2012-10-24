@@ -54,18 +54,19 @@ class window.PlaceOrder
     $.post(
       '/orders',
       {
-        place_id: @place_id,
-        datetime: @datetime,
-        persons_number: @persons_number
+        "order[place_id]": @place_id,
+        "order[date]": @datitime,
+        "order[persons_number]": @persons_number
       }
       (data) ->
         if data.status == 'ok'
 
           # виджет "рассказать"
-
+          window.social_repost_widget = new SocialRepost($("#order-ready .social"), data.vk_social_url)
+          social_repost_widget.render()
 
           # Начинаем чекать.
-          window.order_checker = new OrderChecker($("#order-checker"), 1)
+          window.order_checker = new OrderChecker($("#order-checker"), data.order_id)
 
           console.log(data)
         else
