@@ -29,25 +29,27 @@ class OrdersController < ApplicationController
   end
 
   def check
-    #@checker = SocialChecker.new({
-    #  uid: current_user.authentication.uid,
-    #  token: current_user.authentication.token,
-    #  place_id: @order.place_id,
-    #  order_id: @order.id,
-    #})
 
-    render json: {status: :success}
+    # А лучше наверно чекать в модели, а возвращать статус ордера, а не сассесс еррор
+    @checker = SocialChecker.new(@order)
 
 
-    #respond_to do |format|
-    #  format.json {
-        #if @checker.check.success?
-          #render json: {status: :success}
-        #else
-          #render json: {status: :error}
-        #end
-    #  }
-    #end
+    if @checker.check.success?
+      # Меняем статус
+      @order.confirm()
+
+      respond_to do |format|
+        format.json {
+          render json: {status: :success}
+        }
+      end
+    else
+      respond_to do |format|
+        format.json {
+          render json: {status: :error}
+        }
+      end
+    end
   end
 
   def destroy

@@ -1,17 +1,16 @@
 class SocialChecker
 
-  attr_accessor :uid, :token, :place_id, :order_id, :success, :vk
+  attr_accessor :order, :success, :vk
 
-  def initialize(options = {})
-    self.uid = options[:uid]
-    self.token = options[:token]
-    self.place_id = options[:place_id]
-    self.order_id = options[:order_id]
+  # @param [Order] order
+  def initialize(unchecked_order)
+
+    self.order = unchecked_order
 
     self.success = false
 
-    self.vk = VkontakteApi::Client.new(token)
-    self.vk.users.get(uid: uid)
+    self.vk = VkontakteApi::Client.new(order.user.authentication.token)
+    self.vk.users.get(uid: order.user.authentication.uid)
   end
 
   def get_wall_posts(count = 5)
@@ -42,7 +41,7 @@ class SocialChecker
   end
 
   def expected_url
-    "gurmap.ru/places/#{place_id}##{order_id}"
+    "gurmap.ru/places/#{order.place_id}##{order.id}"
   end
 
 end
